@@ -1,9 +1,6 @@
-import React from 'react'
+/*const ProductItem = ({product}) => {
 
-const ProductItem = ({product}) => {
-  
-
-  return (
+  return (  
     <div>
       <div className='shadow rounded cursor-pointer border'>
         <div key={product.id} >
@@ -20,6 +17,16 @@ const ProductItem = ({product}) => {
           </div>
           </div>
     </div>
+  )
+}
+
+export default ProductItem */
+
+import React from 'react'
+
+const ProductItem = () => {
+  return (
+    <div>ProductItem</div>
   )
 }
 
