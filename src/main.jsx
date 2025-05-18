@@ -7,6 +7,7 @@ import Contact from './pages/Contact'
 import Notfaund from './pages/Notfaund'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import Home from './pages/Home'
+import Cart from './pages/Cart'
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path:'/contact',
         element: <Contact/>
+      },
+      {
+        path:'/cart',
+        element: <Cart/>
       },
       {
         path: '*',
