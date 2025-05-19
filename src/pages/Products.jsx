@@ -1,29 +1,33 @@
-
-import data from '../assets/data/Products.json'
-import ProductItem from '../components/ProductItem'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router'
+import ProductItems from '../components/ProductItems'
+import ProductsSkeleton from '../components/ProductsSkeleton'
 
 const Products = () => {
+  const [products, setproducts] = useState([])
+  const [loader, setloader] = useState(true)
+
+  useEffect(() => {
+    const fetchproduct = async () => {
+      try {
+        const response = await axios.get('https://dummyjson.com/products')
+        setproducts(response.data.products)
+      } catch (error) {
+        console.log('Error fetching products:', error)
+      }
+      setloader(false)
+    }
+    fetchproduct()
+  }, [])
+
   return (
-    <div className='grid lg:grid-cols-3 md:grid-cols-2 mx-auto max-w-5xl lg:gap-4 w-full mt-10 text-center container justify-center gap-6 overflow-x-hidden'>
-      {data.products.map((product) =>(
-         <div className='shadow rounded cursor-pointer border'>
-        <div key={product.id} >
-         <img src={product.thumbnail} alt="" /> 
-         <h1>{product.title}</h1>
-        </div>
-          <div className='flex justify-between px-4'>
-            <h2 className='text-blue-700'>Price : {product.price}</h2>
-            <h2 className='text-gray-300'>{product.stock > 0 ? `${product.stock} in stock` : 'Out of stock'}</h2>
-          </div>
-          <div className='text-start m-4'>
-            <span className='text-yellow-400 text-4xl left-0 w-full '>{'*'.repeat(Math.round(product.rating))}</span>
-            <span className='text-gray-200 text-4xl left-0 w-full '>{'*'.repeat(Math.round(5 - product.rating))}</span>
-          </div>
-          </div>
-      ))}
-    </div>
-   
+    loader ? (
+      <ProductsSkeleton/>
+    ) : (
+     <ProductItems products={products}/>
+    )
   )
 }
-//<ProductItem key={product.id} product={product}/>
+
 export default Products

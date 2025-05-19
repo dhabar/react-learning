@@ -3,11 +3,11 @@ import './index.css'
 import App from './App'
 import Products from './pages/Products'
 import About from './pages/About'
-import Contact from './pages/Contact'
 import Notfaund from './pages/Notfaund'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import Home from './pages/Home'
 import Cart from './pages/Cart'
+import ProductDetails from './components/ProductDetails'
 
 const router = createBrowserRouter([
   {
@@ -24,12 +24,12 @@ const router = createBrowserRouter([
         element: <Products/>
       },
       {
-        path:'/about',
-        element: <About/>
+        path:'/productdetails/:id',
+        element: <ProductDetails/>
       },
       {
-        path:'/contact',
-        element: <Contact/>
+        path:'/about',
+        element: <About/>
       },
       {
         path:'/cart',
