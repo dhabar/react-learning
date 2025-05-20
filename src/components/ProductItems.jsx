@@ -1,10 +1,11 @@
-import React from 'react'
 import { Link } from 'react-router'
+import Search from './Search'
 
 const ProductItems = ({ products }) => {
   return (
     <div>
-         <div className='p-4 grid lg:grid-cols-3 md:grid-cols-2 mx-auto max-w-5xl lg:gap-4 w-full text-center container justify-center gap-6 overflow-x-hidden mt-20'>
+      <Search/>
+         <div className='p-4 grid lg:grid-cols-3 md:grid-cols-2 mx-auto max-w-5xl lg:gap-4 w-full text-center container justify-center gap-6 overflow-x-hidden mt-10'>
         {products.map((product) => (
           <Link to={`/productdetails/${product.id}`} key={product.id} className='rounded shadow shadow-gray-400'>
             <div>

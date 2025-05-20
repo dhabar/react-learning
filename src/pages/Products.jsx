@@ -1,11 +1,10 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router'
 import ProductItems from '../components/ProductItems'
 import ProductsSkeleton from '../components/ProductsSkeleton'
 
 const Products = () => {
-  const [products, setproducts] = useState([])
+  const [products, setproducts] = useState()
   const [loader, setloader] = useState(true)
 
   useEffect(() => {
