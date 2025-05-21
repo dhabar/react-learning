@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router";
 
 const Header = () => {
@@ -14,7 +15,9 @@ const Header = () => {
           <li><Link className="hover:text-pink-600" to="/home">Home</Link></li>
           <li><Link className="hover:text-pink-600" to="/products">Products</Link></li>
           <li><Link className="hover:text-pink-600" to="/about">About</Link></li>
-          <li><Link className="hover:text-pink-600" to="/cart">Cart</Link></li>
+          <li><Link className="hover:text-pink-600 text-2xl " to="/cart">
+          <FaShoppingCart />
+          </Link></li>
         </ul>
         <button className="lg:hidden text-3xl fixed right-5" onClick={handleClick}>≣</button>
       </div>

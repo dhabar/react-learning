@@ -4,7 +4,7 @@ import ProductItems from '../components/ProductItems'
 import ProductsSkeleton from '../components/ProductsSkeleton'
 
 const Products = () => {
-  const [products, setproducts] = useState()
+  
   const [loader, setloader] = useState(true)
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Products = () => {
     loader ? (
       <ProductsSkeleton/>
     ) : (
-     <ProductItems products={products}/>
+     <ProductItems />
     )
   )
 }
